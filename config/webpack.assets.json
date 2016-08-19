@@ -1,0 +1,14 @@
+{
+  "bundle": {
+    "js": "/public/bundle.js",
+    "css": "/public/bundle.css"
+  },
+  "xBundle": {
+    "js": "/public/xBundle.js",
+    "css": "/public/xBundle.css"
+  },
+  "common": {
+    "css": "/public/common.css",
+    "js": "/public/common.js"
+  }
+}
