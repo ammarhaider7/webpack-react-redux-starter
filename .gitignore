@@ -1,3 +1,4 @@
 /node_modules
-client/public/
+/client/public
 npm-debug.log
+config/webpack.assets.json
