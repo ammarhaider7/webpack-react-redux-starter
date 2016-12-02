@@ -5,13 +5,22 @@ const pureCssDir = path.resolve('node_modules/purecss');
 const srcDir = path.resolve('client/src');
 const includeDirs = [srcDir, pureCssDir, boostrapDir];
 
+const sassLoaders = [
+	{
+		loader: 'css-loader',
+		options: { modules: true }
+	}, {
+		loader: 'sass-loader'
+	}
+];
+
 module.exports = [{
 	// SASS
 	test: /\.scss$/,
 	include: includeDirs,
 	use: ExtractTextPlugin.extract({
 		fallbackLoader: 'style-loader', 
-		loader: ['css-loader', 'sass-loader']
+		loader: sassLoaders
 	})
 
 }, {
@@ -24,7 +33,7 @@ module.exports = [{
 	// CSS
 	test: /\.css$/,
 	include: includeDirs,
-	use: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
+	use: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: [ { loader: 'css-loader'} ] })
 
 }, {
 	// CoffeeScript

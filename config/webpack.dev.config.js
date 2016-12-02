@@ -1,5 +1,3 @@
-"use strict";
-
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpackFactory = require('./webpack.factory.config');
@@ -16,9 +14,6 @@ for (key in raw_entries) {
     value = raw_entries[key];
     entries[key] = [value, wdsLocal];
 }
-
-// console.log('entries');
-// console.log(entries);
 
 module.exports = webpackFactory({
 
