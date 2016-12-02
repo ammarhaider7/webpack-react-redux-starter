@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpackFactory = require('./webpack.factory.config');
 const raw_entries = require('./webpack.entries');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 // Append dev server items to entries array items
@@ -29,12 +30,18 @@ module.exports = webpackFactory({
         devServer: {
             contentBase: path.resolve('./client/src'),
             hot: true
-        },
-        debug: true
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("[name].css")
+        new ExtractTextPlugin("[name].css"),
+        new webpack.LoaderOptionsPlugin({
+            debug: true
+        }),
+        new CopyWebpackPlugin([{
+            from: path.resolve('node_modules/reload/lib/reload-client.js'),
+            to: path.resolve('client/public')
+        }]),
     ]
 
 });

@@ -18,34 +18,35 @@ module.exports = [{
 	// SASS
 	test: /\.scss$/,
 	include: includeDirs,
-	use: ExtractTextPlugin.extract({
+	loader: ExtractTextPlugin.extract({
 		fallbackLoader: 'style-loader', 
-		loader: sassLoaders
+		// loader: sassLoaders
+		loader: ['css-loader', 'sass-loader']
 	})
 
 }, {
 	// CJSX
 	test: /\.cjsx$/,
 	include: includeDirs,
-	use: "coffee-jsx-loader"
+	loader: "coffee-jsx-loader"
 
 }, {
 	// CSS
 	test: /\.css$/,
 	include: includeDirs,
-	use: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: [ { loader: 'css-loader'} ] })
+	loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: [ { loader: 'css-loader'} ] })
 
 }, {
 	// CoffeeScript
 	test: /\.coffee$/,
 	include: includeDirs,
-	use: 'coffee-loader'
+	loader: 'coffee-loader'
 
 }, {
 	// JSX (react)
 	test: /\.jsx?$/,
 	include: includeDirs,
-	use: 'babel-loader',
+	loader: 'babel-loader',
 	options: {
 		presets: ['es2015', 'react']
 	}
@@ -53,7 +54,7 @@ module.exports = [{
 }, {
 	// JPG and PNG (images)
 	test: /\.(jpg|png)$/,
-	use: [
+	loader: [
 		// file-loader will then take require statements to image paths and create image files
 		'file-loader?name=[path][name].[hash].[ext]',
 		// image-webpack will compress the images first
@@ -63,14 +64,14 @@ module.exports = [{
 
 }, {
 	test: /\.svg$/,
-	use: 'file-loader',
+	loader: 'file-loader',
 	include: includeDirs
 }, {
 	// WOFF (fonts)
 	test: /\.woff2?$/,
 	// Inline small woff files and output them below font/.
 	// Set mimetype just in case.
-	use: 'url-loader',
+	loader: 'url-loader',
 	options: {
 		name: 'font/[hash].[ext]',
 		limit: 5000,
@@ -81,7 +82,7 @@ module.exports = [{
 }, {
 	// TTF and EOT (fonts)
 	test: /\.ttf$|\.eot$/,
-	use: 'file-loader',
+	loader: 'file-loader',
 	options: {
 		name: 'font/[hash].[ext]'
 	},

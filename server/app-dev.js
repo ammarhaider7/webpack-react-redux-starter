@@ -1,7 +1,7 @@
 console.log("running app-dev.js");
 
 require('babel-register')({
-  presets: ['react']
+  presets: ['react', 'es2015']
 });
 
 const express = require('express');

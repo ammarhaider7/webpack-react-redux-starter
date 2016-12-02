@@ -4,8 +4,6 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const srcDir = path.resolve('client/src');
 const loaders = require('./webpack.default-loaders');
 
-// console.log(devEntries);
-
 module.exports = (options) => {
 
     const context = srcDir;

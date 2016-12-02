@@ -21,7 +21,7 @@ module.exports = webpackFactory({
         publicPath: '/public/'
     },
     extraProps: {},
-    devtool: 'source-map',
+    // devtool: 'source-map',
     plugins: [
         new ExtractTextPlugin('[name].[chunkhash].css'),
         new webpack.optimize.UglifyJsPlugin({

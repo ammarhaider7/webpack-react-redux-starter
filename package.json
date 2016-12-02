@@ -6,7 +6,7 @@
     "start": "webpack --config ./config/webpack.prod.config.js -p && node ./server/bin/www",
     "stats": "webpack --config ./config/webpack.prod.config.js --profile --json > stats.json -p && node ./server/bin/www",
     "start-wds": "node ./server/wds.js",
-    "start-express": "nodemon -e jsx --watch views --watch routes ./server/bin/dev",
+    "start-express": "nodemon -e jsx --watch server/views --watch server/routes ./server/bin/dev",
     "watch": "run-local"
   },
   "dependencies": {
@@ -35,7 +35,9 @@
     "coffee-loader": "^0.7.2",
     "coffee-react-transform": "^4.0.0",
     "coffee-script": "^1.10.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "^0.9.0",
     "image-webpack-loader": "^2.0.0",
     "node-sass": "^3.8.0",
@@ -43,16 +45,18 @@
     "proxy-middleware": "^0.15.0",
     "purecss": "^0.6.0",
     "purifycss-webpack-plugin": "^2.0.3",
-    "reload": "^1.0.0",
+    "reload": "^1.1.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "2.1.0-beta.27",
+    "webpack": "2.1.0-beta.25",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-dev-server": "2.1.0-beta.12",
-    "extract-text-webpack-plugin": "2.0.0-beta.4"
+    "webpack-dev-server": "2.1.0-beta.9"
   },
   "babel": {
-    "presets": ["react", "es2015"]
+    "presets": [
+      "react",
+      "es2015"
+    ]
   }
 }
