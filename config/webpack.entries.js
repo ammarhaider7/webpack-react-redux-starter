@@ -1,6 +1,6 @@
 module.exports = {
 
   bundle: './js/main.jsx',
-  xBundle: './js/x.js'
+  xBundle: './js/x.jsx'
 
 };

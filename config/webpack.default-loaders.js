@@ -9,7 +9,10 @@ module.exports = [{
 	// SASS
 	test: /\.scss$/,
 	include: includeDirs,
-	use: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader, sass-loader']})
+	use: ExtractTextPlugin.extract({
+		fallbackLoader: 'style-loader', 
+		loader: ['css-loader', 'sass-loader']
+	})
 
 }, {
 	// CJSX
@@ -45,7 +48,7 @@ module.exports = [{
 		// file-loader will then take require statements to image paths and create image files
 		'file-loader?name=[path][name].[hash].[ext]',
 		// image-webpack will compress the images first
-		'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+		'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
 	],
 	include: includeDirs
 
