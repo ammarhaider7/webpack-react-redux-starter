@@ -24,7 +24,6 @@ module.exports = webpackFactory({
     devtool: 'source-map',
     plugins: [
         new ExtractTextPlugin('[name].[chunkhash].css'),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
 	        compress: {
 	        	warnings: false,

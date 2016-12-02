@@ -3,7 +3,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const AssetsPlugin = require('assets-webpack-plugin');
-const validate = require('webpack-validator');
 const srcDir = path.resolve('client/src');
 const loaders = require('./webpack.default-loaders');
 
@@ -17,10 +16,10 @@ module.exports = (options) => {
     const devtool = options.devtool;
     const output = options.output;
     // const imgDir = path.resolve('client/src/images');
-    const module = { loaders };
+    const module = { rules: loaders };
     const resolve = {
         // you can now require('file') instead of require('file.coffee')
-        extensions: ['', '.js', '.json', '.coffee', '.cjsx']
+        extensions: ['.js', '.json', '.coffee', '.cjsx', '.jsx'],
     };
     const plugins = [
         new webpack.optimize.CommonsChunkPlugin({
@@ -52,8 +51,6 @@ module.exports = (options) => {
     
     }, extraProps);
 
-    return validate(config, {
-        quiet: true 
-    });
+    return config;
 
 };

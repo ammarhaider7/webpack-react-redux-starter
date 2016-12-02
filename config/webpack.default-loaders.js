@@ -9,39 +9,39 @@ module.exports = [{
 	// SASS
 	test: /\.scss$/,
 	include: includeDirs,
-	loader: ExtractTextPlugin.extract('style', ['css!sass'])
+	use: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: ['css-loader, sass-loader']})
 
 }, {
 	// CJSX
 	test: /\.cjsx$/,
 	include: includeDirs,
-	loader: "coffee-jsx-loader"
+	use: "coffee-jsx-loader"
 
 }, {
 	// CSS
 	test: /\.css$/,
 	include: includeDirs,
-	loader: ExtractTextPlugin.extract('style', ['css'])
+	use: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' })
 
 }, {
 	// CoffeeScript
 	test: /\.coffee$/,
 	include: includeDirs,
-	loader: 'coffee-loader'
+	use: 'coffee-loader'
 
 }, {
 	// JSX (react)
 	test: /\.jsx?$/,
 	include: includeDirs,
-	loader: 'babel-loader',
-	query: {
+	use: 'babel-loader',
+	options: {
 		presets: ['es2015', 'react']
 	}
 
 }, {
 	// JPG and PNG (images)
 	test: /\.(jpg|png)$/,
-	loaders: [
+	use: [
 		// file-loader will then take require statements to image paths and create image files
 		'file-loader?name=[path][name].[hash].[ext]',
 		// image-webpack will compress the images first
@@ -51,15 +51,15 @@ module.exports = [{
 
 }, {
 	test: /\.svg$/,
-	loader: 'file',
+	use: 'file-loader',
 	include: includeDirs
 }, {
 	// WOFF (fonts)
 	test: /\.woff2?$/,
 	// Inline small woff files and output them below font/.
 	// Set mimetype just in case.
-	loader: 'url',
-	query: {
+	use: 'url-loader',
+	options: {
 		name: 'font/[hash].[ext]',
 		limit: 5000,
 		mimetype: 'application/font-woff'
@@ -69,8 +69,8 @@ module.exports = [{
 }, {
 	// TTF and EOT (fonts)
 	test: /\.ttf$|\.eot$/,
-	loader: 'file',
-	query: {
+	use: 'file-loader',
+	options: {
 		name: 'font/[hash].[ext]'
 	},
 	include: includeDirs
