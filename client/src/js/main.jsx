@@ -21,10 +21,13 @@ setTimeout(printAfterTimeout, 1500);
 
 const CommentBox = React.createClass({
 
+  moduleA: null,
+
   reqEnsureTest() {
     console.log('click on img');
-    require.ensure([], require => {
-      const a = require('./a');
+    require.ensure(['./a'], () => {
+      this.moduleA = require('./a').default;
+      this.moduleA();
     });
   },
 
@@ -33,8 +36,8 @@ const CommentBox = React.createClass({
       <div className="commentBox">
         <p>Hello world! I am a client-side react component.</p>
         <CjsxComponent />
-        <p onClick={ this.reqEnsureTest }>This is an image</p>
-        <img alt="radiohead" src={imgSrc} style={{ height: '20%', width: '20%' }} />
+        <p>This is an image</p>
+        <img alt="radiohead" src={imgSrc} onClick={ this.reqEnsureTest } style={{ height: '20%', width: '20%' }} />
         <p>This is a star icon <span className="glyphicon glyphicon-star"></span></p>
         <span className="label" style={{color: 'grey'}}>This is a label</span>
       </div>
