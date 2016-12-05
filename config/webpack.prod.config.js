@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackFactory = require('./webpack.factory.config');
 const entries = require('./webpack.entries');
 // Build folder
-const publicPath = path.resolve('client/public');
+const publicPath = path.resolve('client/dist');
 const srcDir = path.resolve('client/src');
 
 module.exports = webpackFactory({
@@ -18,7 +18,7 @@ module.exports = webpackFactory({
         filename: '[name].[chunkhash].js',
         // This is used for require.ensure
         chunkFilename: '[chunkhash].js',
-        publicPath: '/public/'
+        publicPath: '/'
     },
     extraProps: {},
     // devtool: 'source-map',

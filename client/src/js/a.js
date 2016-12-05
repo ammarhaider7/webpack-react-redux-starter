@@ -1,3 +1,3 @@
 export default () => {
-	console.log('require.ensure working');
+	console.log('require.ensure working!');
 };

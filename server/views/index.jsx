@@ -8,7 +8,7 @@ var HelloMessage = React.createClass({
 		// server change reload
 		const dev = this.props.env === 'dev';
 		let reloadJs = null;
-		if (dev) reloadJs = <script src='/public/reload-client.js'></script>
+		if (dev) reloadJs = <script src='/dist/reload-client.js'></script>
 
 		return (
 			<DefaultLayout {...this.props}>

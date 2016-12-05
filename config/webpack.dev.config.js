@@ -21,9 +21,9 @@ module.exports = webpackFactory({
     env: 'development',
     entries: entries,
     output: {
-        path: path.resolve('client/public'),
+        path: path.resolve('client/dist'),
         filename: '[name].js',
-        publicPath: '/public/'
+        publicPath: '/dist/'
     },
     devtool: 'eval-source-map',
     extraProps: {
@@ -40,7 +40,7 @@ module.exports = webpackFactory({
         }),
         new CopyWebpackPlugin([{
             from: path.resolve('node_modules/reload/lib/reload-client.js'),
-            to: path.resolve('client/public')
+            to: path.resolve('client/dist')
         }]),
     ]
 

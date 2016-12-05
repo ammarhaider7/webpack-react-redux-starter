@@ -38,7 +38,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/public', proxy(url.parse('http://localhost:8080/')));
+app.use('/dist', proxy(url.parse('http://localhost:8080/')));
 // finally, set the custom view
 // app.set('view', require('react-engine/lib/expressView'));
 
