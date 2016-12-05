@@ -1,7 +1,14 @@
 const React = require('react');
 
 const DefaultLayout = React.createClass({
+
   render() {
+
+    // server change reload
+    const dev = this.props.env === 'dev';
+    let reloadJs = null;
+    if (dev) reloadJs = <script src='/dist/reload-client.js'></script>
+
     return (
       <html>
         <head>
@@ -11,10 +18,12 @@ const DefaultLayout = React.createClass({
         </head>
         <body>
         	{this.props.children}
+          { reloadJs }
         </body>
       </html>
     );
   }
+
 });
 
 module.exports = DefaultLayout;
