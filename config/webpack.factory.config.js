@@ -23,7 +23,7 @@ module.exports = (options) => {
             name: 'common'
         }),
         new AssetsPlugin({
-            path: __dirname,
+            path: path.resolve('client/dist'),
             filename: 'webpack.assets.json',
             prettyPrint: true,
             update: true

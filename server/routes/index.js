@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const assets = require('../../config/webpack.assets.json');
+const assets = require('../../client/dist/webpack.assets.json');
 const commonJs = assets.common.js;
 const commonCss = assets.common.css;
 
