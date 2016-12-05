@@ -17,26 +17,37 @@ let printName = (fname, lname) => console.log(`${fname} ${lname}`);
 printName(fname, lname);
 
 setTimeout(printAfterTimeout, 1500);
-// setTimeout(printAfterTimeout2, 1500);
 
 const CommentBox = React.createClass({
 
   moduleA: null,
 
+  getInitialState() {
+    return {
+      content: null
+    }
+  },
+
   reqEnsureTest() {
-    console.log('click on img');
     require.ensure(['./a'], () => {
-      this.moduleA = require('./a').default;
-      this.moduleA();
+      this.moduleA = require('./a').default();
+      this.setState({
+        content: this.moduleA.content
+      })
     });
   },
 
   render() {
+
+    let reqEnsContent;
+    if (this.state.content != null) reqEnsContent = <p>{ this.state.content }</p>;
+
     return (
       <div className="commentBox">
         <p>Hello world! I am a client-side react component.</p>
         <CjsxComponent />
         <p>This is an image</p>
+        { reqEnsContent }
         <img alt="radiohead" src={imgSrc} onClick={ this.reqEnsureTest } style={{ height: '20%', width: '20%' }} />
         <p>This is a star icon <span className="glyphicon glyphicon-star"></span></p>
         <span className="label" style={{color: 'grey'}}>This is a label</span>
