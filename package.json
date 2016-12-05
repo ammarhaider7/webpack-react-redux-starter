@@ -5,9 +5,9 @@
   "scripts": {
     "start": "webpack --config ./config/webpack.prod.config.js -p && node ./server/bin/www",
     "stats": "webpack --config ./config/webpack.prod.config.js --profile --json > stats.json -p && node ./server/bin/www",
+    "watch": "run-p start-express start-wds",
     "start-wds": "node ./server/wds.js",
-    "start-express": "nodemon -e jsx --watch server/views --watch server/routes ./server/bin/dev",
-    "watch": "run-local"
+    "start-express": "nodemon -e jsx --watch server/views --watch server/routes ./server/bin/dev"
   },
   "dependencies": {
     "babel-register": "^6.9.0",
