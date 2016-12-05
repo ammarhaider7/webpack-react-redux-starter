@@ -6,7 +6,7 @@ const xHelloMessage = React.createClass({
   render() {
     return (
 		<DefaultLayout {...this.props}>
-			<div>Hello {this.props.name}</div>
+			<div>Hello, {this.props.name}</div>
 			<div id="content"></div>
 			<script src={ `${this.props.commonJs}` }></script>
 			<script src={ `${this.props.jsFile}` }></script>

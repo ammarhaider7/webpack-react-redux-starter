@@ -5,11 +5,24 @@ const pureCssDir = path.resolve('node_modules/purecss');
 const srcDir = path.resolve('client/src');
 const includeDirs = [srcDir, pureCssDir, boostrapDir];
 
+const sassLoaders = [
+	{
+		loader: 'css-loader',
+		options: { modules: true }
+	}, {
+		loader: 'sass-loader'
+	}
+];
+
 module.exports = [{
 	// SASS
 	test: /\.scss$/,
 	include: includeDirs,
-	loader: ExtractTextPlugin.extract('style', ['css!sass'])
+	loader: ExtractTextPlugin.extract({
+		fallbackLoader: 'style-loader', 
+		// loader: sassLoaders
+		loader: ['css-loader', 'sass-loader']
+	})
 
 }, {
 	// CJSX
@@ -21,7 +34,7 @@ module.exports = [{
 	// CSS
 	test: /\.css$/,
 	include: includeDirs,
-	loader: ExtractTextPlugin.extract('style', ['css'])
+	loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: [ { loader: 'css-loader'} ] })
 
 }, {
 	// CoffeeScript
@@ -34,32 +47,32 @@ module.exports = [{
 	test: /\.jsx?$/,
 	include: includeDirs,
 	loader: 'babel-loader',
-	query: {
+	options: {
 		presets: ['es2015', 'react']
 	}
 
 }, {
 	// JPG and PNG (images)
 	test: /\.(jpg|png)$/,
-	loaders: [
+	loader: [
 		// file-loader will then take require statements to image paths and create image files
 		'file-loader?name=[path][name].[hash].[ext]',
 		// image-webpack will compress the images first
-		'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+		'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
 	],
 	include: includeDirs
 
 }, {
 	test: /\.svg$/,
-	loader: 'file',
+	loader: 'file-loader',
 	include: includeDirs
 }, {
 	// WOFF (fonts)
 	test: /\.woff2?$/,
 	// Inline small woff files and output them below font/.
 	// Set mimetype just in case.
-	loader: 'url',
-	query: {
+	loader: 'url-loader',
+	options: {
 		name: 'font/[hash].[ext]',
 		limit: 5000,
 		mimetype: 'application/font-woff'
@@ -69,8 +82,8 @@ module.exports = [{
 }, {
 	// TTF and EOT (fonts)
 	test: /\.ttf$|\.eot$/,
-	loader: 'file',
-	query: {
+	loader: 'file-loader',
+	options: {
 		name: 'font/[hash].[ext]'
 	},
 	include: includeDirs

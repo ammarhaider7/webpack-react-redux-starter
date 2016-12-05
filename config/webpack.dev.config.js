@@ -1,9 +1,8 @@
-"use strict";
-
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpackFactory = require('./webpack.factory.config');
 const raw_entries = require('./webpack.entries');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 // Append dev server items to entries array items
@@ -17,29 +16,33 @@ for (key in raw_entries) {
     entries[key] = [value, wdsLocal];
 }
 
-// console.log('entries');
-// console.log(entries);
-
 module.exports = webpackFactory({
 
     env: 'development',
     entries: entries,
     output: {
-        path: path.resolve('client/public'),
+        path: path.resolve('client/dist'),
         filename: '[name].js',
-        publicPath: '/public/'
+        publicPath: '/dist/'
     },
     devtool: 'eval-source-map',
     extraProps: {
         devServer: {
             contentBase: path.resolve('./client/src'),
-            hot: true
-        },
-        debug: true
+            hot: true,
+            open: true
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("[name].css")
+        new ExtractTextPlugin("[name].css"),
+        new webpack.LoaderOptionsPlugin({
+            debug: true
+        }),
+        new CopyWebpackPlugin([{
+            from: path.resolve('node_modules/reload/lib/reload-client.js'),
+            to: path.resolve('client/dist')
+        }]),
     ]
 
 });
