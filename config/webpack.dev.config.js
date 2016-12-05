@@ -29,7 +29,8 @@ module.exports = webpackFactory({
     extraProps: {
         devServer: {
             contentBase: path.resolve('./client/src'),
-            hot: true
+            hot: true,
+            open: true
         }
     },
     plugins: [

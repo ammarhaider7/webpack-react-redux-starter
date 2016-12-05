@@ -5,10 +5,8 @@
   "scripts": {
     "start": "webpack --config ./config/webpack.prod.config.js --progress --profile --colors -p && node ./server/bin/www",
     "stats": "webpack --config ./config/webpack.prod.config.js --profile --json > stats.json -p && node ./server/bin/www",
-    "watch": "run-s build:dev watch-p",
-    "watch-p": "run-p start-wds start-express",
-    "build:prod": "webpack --config ./config/webpack.prod.config.js",
-    "build:dev": "webpack --config ./config/webpack.dev.config.js --progress --profile --colors",
+    "watch": "run-p start-wds start-express",
+    "build": "webpack --config ./config/webpack.prod.config.js",
     "start-wds": "node ./server/wds.js",
     "start-express": "nodemon -e jsx --watch server/views --watch server/routes ./server/bin/dev"
   },
