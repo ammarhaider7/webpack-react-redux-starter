@@ -8,6 +8,17 @@ import '../css/scss/style.scss';
 import imgSrc from '../images/radiohead.jpg';
 import '../../../node_modules/purecss/build/buttons-core.css';
 import '../../../node_modules/purecss/build/base.css';
+import { Provider } from 'react-redux';
+
+undefined = 'blag'
+
+Retop.something(() => {
+  eat()
+})
+
+React.render(<Provider store={Store}>
+  {() => <App />}
+</Provider>, document.getElementById('container'))
 
 const fname = 'Hassan';
 const lname = 'Haider';

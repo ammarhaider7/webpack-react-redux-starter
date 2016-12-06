@@ -1,0 +1,29 @@
+{
+  "parserOptions": {
+      "ecmaVersion": 6,
+      "ecmaFeatures": {
+          "jsx": true,
+          "experimentalObjectRestSpread": true
+      },
+      "sourceType": "module"
+  },
+
+  "env": {
+    "browser": 1,
+    "node": 1
+  },
+ 
+  "globals": {
+    "angular": 1
+  },
+ 
+  "rules": {
+	 "quotes": [2, "single"],
+   "no-undef": "error",
+   "no-invalid-regexp": 1,
+   "no-unreachable": 1,
+   "no-mixed-spaces-and-tabs": 1,
+   "no-const-assign": 1,
+   "no-dupe-class-members": 1
+  }
+}
