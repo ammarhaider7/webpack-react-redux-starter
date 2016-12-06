@@ -4,7 +4,7 @@ const initial = {
   counter: 0
 }
 
-const Store = createStore((state = initial, action) => {
+export const Store = createStore((state = initial, action) => {
   switch (action.type) {
   case 'counter:increment':
     return { ...state, counter: state.counter + 1 }

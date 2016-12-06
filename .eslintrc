@@ -1,4 +1,8 @@
 {
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "parserOptions": {
       "ecmaVersion": 6,
       "ecmaFeatures": {
@@ -16,14 +20,27 @@
   "globals": {
     "angular": 1
   },
+
+  "plugins": [
+    "import",
+    "react"
+  ],
  
   "rules": {
-	 "quotes": [2, "single"],
-   "no-undef": "error",
-   "no-invalid-regexp": 1,
-   "no-unreachable": 1,
-   "no-mixed-spaces-and-tabs": 1,
-   "no-const-assign": 1,
-   "no-dupe-class-members": 1
+    "quotes": [2, "single"],
+    "no-undef": "error",
+    "no-invalid-regexp": 1,
+    "no-unreachable": 1,
+    "no-mixed-spaces-and-tabs": 1,
+    "no-const-assign": 1,
+    "no-dupe-class-members": 1,
+    "no-global-assign": 1,
+    "no-console": 0,
+    "import/no-unresolved": 2,
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
+    "no-case-declarations": 0
   }
 }

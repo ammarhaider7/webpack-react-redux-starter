@@ -25,22 +25,10 @@ module.exports = [{
 	})
 
 }, {
-	// CJSX
-	test: /\.cjsx$/,
-	include: includeDirs,
-	loader: "coffee-jsx-loader"
-
-}, {
 	// CSS
 	test: /\.css$/,
 	include: includeDirs,
 	loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: [ { loader: 'css-loader'} ] })
-
-}, {
-	// CoffeeScript
-	test: /\.coffee$/,
-	include: includeDirs,
-	loader: 'coffee-loader'
 
 }, {
 	// JSX (react)

@@ -1,5 +1,3 @@
-import { printAfterTimeout } from './coffee/a';
-import { CjsxComponent } from './cjsx/c';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../css/global.scss';
@@ -9,25 +7,19 @@ import imgSrc from '../images/radiohead.jpg';
 import '../../../node_modules/purecss/build/buttons-core.css';
 import '../../../node_modules/purecss/build/base.css';
 import { Provider } from 'react-redux';
+import { Store } from '../redux/store'
+import Counter from '../redux/counter'
 
-undefined = 'blag'
-
-Retop.something(() => {
-  eat()
-})
-
-React.render(<Provider store={Store}>
-  {() => <App />}
+ReactDOM.render(<Provider store={Store}>
+  {() => <Counter/>}
 </Provider>, document.getElementById('container'))
 
-const fname = 'Hassan';
+const fname = 'Ammar';
 const lname = 'Haider';
 
 let printName = (fname, lname) => console.log(`${fname} ${lname}`);
 
 printName(fname, lname);
-
-setTimeout(printAfterTimeout, 1500);
 
 const CommentBox = React.createClass({
 
@@ -56,7 +48,6 @@ const CommentBox = React.createClass({
     return (
       <div className="commentBox">
         <p>Hello world! I am a client-side react component.</p>
-        <CjsxComponent />
         <p>This is an image</p>
         { reqEnsContent }
         <img alt="radiohead" src={imgSrc} onClick={ this.reqEnsureTest } style={{ height: '20%', width: '20%' }} />

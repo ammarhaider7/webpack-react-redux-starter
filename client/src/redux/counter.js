@@ -1,13 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Store } from './store'
 
 let Counter = React.createClass({
-  render () {
-    <div>
-      Counter is {this.props.counter}
-      <button onClick={this.reset}>Reset</button>
-      <button onClick={this.increment}>Add</button>
-    </div>
+
+  propTypes: {
+    counter: React.PropTypes.number
+  },
+
+  render() {
+    return  <div>
+              Counter is {this.props.counter}
+              <button onClick={this.reset}>Reset</button>
+              <button onClick={this.increment}>Add</button>
+            </div>
   },
 
   increment (e) {
@@ -21,6 +27,6 @@ let Counter = React.createClass({
   }
 })
 
-Counter = connect((state) => {
+export default Counter = connect((state) => {
   return state
 })(Counter)
