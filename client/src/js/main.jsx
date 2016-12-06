@@ -6,13 +6,7 @@ import '../css/scss/style.scss';
 import imgSrc from '../images/radiohead.jpg';
 import '../../../node_modules/purecss/build/buttons-core.css';
 import '../../../node_modules/purecss/build/base.css';
-import { Provider } from 'react-redux';
-import { Store } from '../redux/store'
-import Counter from '../redux/counter'
-
-ReactDOM.render(<Provider store={Store}>
-  {() => <Counter/>}
-</Provider>, document.getElementById('container'))
+import counter from '../redux'
 
 const fname = 'Ammar';
 const lname = 'Haider';
@@ -60,3 +54,4 @@ const CommentBox = React.createClass({
 });
 
 ReactDOM.render(<CommentBox />,  document.getElementById('content'));
+counter();
