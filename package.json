@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm run lint && npm run build && node ./server/bin/www",
+    "launch": "npm run build && node ./server/bin/www",
     "stats": "webpack --config ./config/webpack.prod.config.js --profile --json > stats.json -p && node ./server/bin/www",
     "watch": "run-p start-wds start-express",
     "build": "webpack --config ./config/webpack.prod.config.js --progress --profile --colors -p",
