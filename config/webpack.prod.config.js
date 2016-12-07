@@ -1,13 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpackFactory = require('./webpack.factory.config');
 const entries = require('./webpack.entries');
 // Build folder
 const publicPath = path.resolve('client/dist');
-const srcDir = path.resolve('client/src');
 
 module.exports = webpackFactory({
 
@@ -25,11 +23,11 @@ module.exports = webpackFactory({
     plugins: [
         new ExtractTextPlugin('[name].[chunkhash].css'),
         new webpack.optimize.UglifyJsPlugin({
-	        compress: {
-	        	warnings: false,
-			    // Drop `console` statements
-			    drop_console: true
-	        }
+            compress: {
+            warnings: false,
+                // Drop `console` statements
+                drop_console: true
+            }
         }),
         new CleanWebpackPlugin([publicPath], {
             // Without `root` CleanWebpackPlugin won't point to our

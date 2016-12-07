@@ -6,7 +6,7 @@ import '../css/scss/style.scss';
 import imgSrc from '../images/radiohead.jpg';
 import '../../../node_modules/purecss/build/buttons-core.css';
 import '../../../node_modules/purecss/build/base.css';
-import counter from '../redux'
+import counter from '../redux';
 
 const fname = 'Ammar';
 const lname = 'Haider';
