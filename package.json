@@ -9,7 +9,7 @@
     "build": "webpack --config ./config/webpack.prod.config.js --progress --profile --colors -p",
     "start-wds": "node ./server/wds.js",
     "start-express": "nodemon -e jsx --watch server/views --watch server/routes ./server/bin/dev",
-    "lint": "eslint src"
+    "lint": "eslint src && eslint server"
   },
   "dependencies": {
     "babel-register": "^6.9.0",
