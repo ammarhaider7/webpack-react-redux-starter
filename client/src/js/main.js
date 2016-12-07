@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../css/global.scss';
 import '../css/style.css';
 import '../css/scss/style.scss';
@@ -15,7 +14,7 @@ let printName = (fname, lname) => console.log(`${fname} ${lname}`);
 
 printName(fname, lname);
 
-const CommentBox = React.createClass({
+const Main = React.createClass({
 
   moduleA: null,
 
@@ -53,5 +52,9 @@ const CommentBox = React.createClass({
   }
 });
 
-ReactDOM.render(<CommentBox />,  document.getElementById('content'));
-counter();
+// ReactDOM.render(<CommentBox />,  document.getElementById('content'));
+// counter();
+export {
+  Main,
+  counter
+}
