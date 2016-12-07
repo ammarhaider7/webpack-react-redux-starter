@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpackFactory = require('./webpack.factory.config');
 const raw_entries = require('./webpack.entries');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -35,7 +35,7 @@ module.exports = webpackFactory({
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("[name].css"),
+        new ExtractTextPlugin('[name].css'),
         new webpack.LoaderOptionsPlugin({
             debug: true
         }),
