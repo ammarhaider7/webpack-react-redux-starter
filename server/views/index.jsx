@@ -11,7 +11,6 @@ var HelloMessage = React.createClass({
 				<div id="content"></div>
 				<div id="container"></div>
 				<script src={ `${this.props.commonJs}` }></script>
-				<script src={ `${this.props.jsFile}` }></script>
 			</DefaultLayout>
 		);
   	}

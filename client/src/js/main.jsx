@@ -16,6 +16,10 @@ printName(fname, lname);
 
 const Main = React.createClass({
 
+  propTypes: {
+    jsFile: React.PropTypes.string
+  },
+
   moduleA: null,
 
   getInitialState() {
@@ -46,6 +50,7 @@ const Main = React.createClass({
         <img alt="radiohead" src={imgSrc} onClick={ this.reqEnsureTest } style={{ height: '20%', width: '20%' }} />
         <p>This is a star icon <span className="glyphicon glyphicon-star"></span></p>
         <span className="label" style={{color: 'grey'}}>This is a label</span>
+        <script src={ this.props.jsFile }></script>
       </div>
     );
 
