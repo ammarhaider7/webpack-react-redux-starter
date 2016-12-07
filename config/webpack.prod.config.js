@@ -24,7 +24,7 @@ module.exports = webpackFactory({
         new ExtractTextPlugin('[name].[chunkhash].css'),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-            	warnings: false,
+            warnings: false,
                 // Drop `console` statements
                 drop_console: true
             }
