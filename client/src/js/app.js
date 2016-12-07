@@ -12,4 +12,4 @@ render(
 		<Route path="/" component={Main} jsFile={assets.bundle.js}/>
 		<Route path="/x" component={X} jsFile={assets.xBundle.js}/>
 	</Router>
-)
+, document.getElementById('content'))
