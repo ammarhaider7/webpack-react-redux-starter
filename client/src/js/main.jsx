@@ -1,5 +1,3 @@
-import { printAfterTimeout } from './coffee/a';
-import { CjsxComponent } from './cjsx/c';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../css/global.scss';
@@ -8,15 +6,14 @@ import '../css/scss/style.scss';
 import imgSrc from '../images/radiohead.jpg';
 import '../../../node_modules/purecss/build/buttons-core.css';
 import '../../../node_modules/purecss/build/base.css';
+import counter from '../redux'
 
-const fname = 'Hassan';
+const fname = 'Ammar';
 const lname = 'Haider';
 
 let printName = (fname, lname) => console.log(`${fname} ${lname}`);
 
 printName(fname, lname);
-
-setTimeout(printAfterTimeout, 1500);
 
 const CommentBox = React.createClass({
 
@@ -45,7 +42,6 @@ const CommentBox = React.createClass({
     return (
       <div className="commentBox">
         <p>Hello world! I am a client-side react component.</p>
-        <CjsxComponent />
         <p>This is an image</p>
         { reqEnsContent }
         <img alt="radiohead" src={imgSrc} onClick={ this.reqEnsureTest } style={{ height: '20%', width: '20%' }} />
@@ -58,3 +54,4 @@ const CommentBox = React.createClass({
 });
 
 ReactDOM.render(<CommentBox />,  document.getElementById('content'));
+counter();
