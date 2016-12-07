@@ -12,15 +12,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var ReactEngine = require('react-engine');
 var routes = require('./routes/index');
-// create an engine instance
-var engine = ReactEngine.server.create({
-  /*  
-    see the complete server options spec here:
-    https://github.com/paypal/react-engine#server-options-spec
-  */
-});
 
 var app = express();
 
@@ -28,7 +20,10 @@ var app = express();
 app.locals.am_env = "dev";
 
 // view engine setup
-app.engine('.jsx', engine);
+var options = {
+  transformViews: false
+}
+app.engine('jsx', require('express-react-views').createEngine(options));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 
@@ -39,8 +34,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/dist', proxy(url.parse('http://localhost:8080/')));
-// finally, set the custom view
-// app.set('view', require('react-engine/lib/expressView'));
 
 app.use('/', routes);
 
