@@ -1,18 +1,9 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const boostrapDir = path.resolve('node_modules/bootstrap-sass/assets');
 const pureCssDir = path.resolve('node_modules/purecss');
 const srcDir = path.resolve('client/src');
 const includeDirs = [srcDir, pureCssDir, boostrapDir];
-
-const sassLoaders = [
-	{
-		loader: 'css-loader',
-		options: { modules: true }
-	}, {
-		loader: 'sass-loader'
-	}
-];
 
 module.exports = [{
 	// SASS
@@ -20,7 +11,6 @@ module.exports = [{
 	include: includeDirs,
 	loader: ExtractTextPlugin.extract({
 		fallbackLoader: 'style-loader', 
-		// loader: sassLoaders
 		loader: ['css-loader', 'sass-loader']
 	})
 
@@ -31,12 +21,12 @@ module.exports = [{
 	loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: [ { loader: 'css-loader'} ] })
 
 }, {
-	// JSX (react)
+	// JSX (react) & JS
 	test: /\.jsx?$/,
 	include: includeDirs,
 	loader: 'babel-loader',
 	options: {
-		presets: ['es2015', 'react']
+		presets: ['es2015', 'react', 'stage-0']
 	}
 
 }, {
