@@ -3,13 +3,17 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Main, counter } from './main.jsx';
 import { X } from './x.jsx';
-import assets from '../../dist/webpack.assets.json';
-
-counter()
 
 render(
 	<Router history={browserHistory}>
-		<Route path="/" component={Main} jsFile={assets.bundle.js}/>
-		<Route path="/x" component={X} jsFile={assets.xBundle.js}/>
+		<Route path="/" component={Main}/>
+		<Route path="/x" component={X}/>
+		<Route path='/y' getComponent={(nextState, cb) => {
+			require.ensure([], (require) => {
+				cb(null, require('./y/components/y.js').Y)
+			})
+		}} />
 	</Router>
 , document.getElementById('content'))
+
+counter()

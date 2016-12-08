@@ -19,7 +19,6 @@ const X = React.createClass({
 		return (
 			<div className="commentBox">
 				<p>Hello, world! I am a client-side react component on x.</p>
-				<script src={ this.props.jsFile }></script>
 			</div>
 		);
   }

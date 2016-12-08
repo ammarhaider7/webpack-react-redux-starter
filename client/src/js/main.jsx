@@ -6,6 +6,7 @@ import imgSrc from '../images/radiohead.jpg';
 import '../../../node_modules/purecss/build/buttons-core.css';
 import '../../../node_modules/purecss/build/base.css';
 import counter from '../redux';
+import { Link } from 'react-router';
 
 const fname = 'Ammar';
 const lname = 'Haider';
@@ -50,15 +51,16 @@ const Main = React.createClass({
         <img alt="radiohead" src={imgSrc} onClick={ this.reqEnsureTest } style={{ height: '20%', width: '20%' }} />
         <p>This is a star icon <span className="glyphicon glyphicon-star"></span></p>
         <span className="label" style={{color: 'grey'}}>This is a label</span>
-        <script src={ this.props.jsFile }></script>
+        <ul role="nav">
+          <li><Link to="/x">Page x</Link></li>
+          <li><Link to="/y">Page y</Link></li>
+        </ul>
       </div>
     );
 
   }
 });
 
-// ReactDOM.render(<CommentBox />,  document.getElementById('content'));
-// counter();
 export {
   Main,
   counter

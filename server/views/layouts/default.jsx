@@ -14,7 +14,7 @@ const DefaultLayout = React.createClass({
         <head>
           <title>{this.props.title}</title>
           <link rel="stylesheet" type="text/css" href={ `${this.props.commonCss}` } />
-          <link rel="stylesheet" type="text/css" href={ `${this.props.cssFile}` } />
+          <link rel="stylesheet" type="text/css" href={ `${this.props.pageCss}` } />
         </head>
         <body>
         	{this.props.children}
