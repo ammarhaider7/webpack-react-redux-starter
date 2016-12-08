@@ -24,7 +24,6 @@ const X = React.createClass({
   }
 });
 
-// ReactDOM.render(<CommentBox />,  document.getElementById('content'));
 export {
 	X
 }
