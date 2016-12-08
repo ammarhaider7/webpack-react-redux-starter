@@ -5,7 +5,7 @@ const commonJs = assets.common.js;
 const commonCss = assets.common.css;
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
 	res.render('index', { 
 		title: 'Webpack-app',
 		name: 'I am a server-side react component',
@@ -17,12 +17,12 @@ router.get('/', (req, res, next) => {
 	});
 });
 
-router.get('/x', (req, res, next) => {
+router.get('/x', (req, res) => {
   res.render('x', { 
-  	title: 'x Express',
-  	name: 'Ammar X',
-  	jsFile: assets.xBundle.js,
-  	cssFile: assets.xBundle.css,
+	title: 'x Express',
+	name: 'Ammar X',
+	jsFile: assets.xBundle.js,
+	cssFile: assets.xBundle.css,
 	commonJs,
 	commonCss
   });
