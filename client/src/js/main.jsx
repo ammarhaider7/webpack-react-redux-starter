@@ -15,7 +15,7 @@ let printName = (fname, lname) => console.log(`${fname} ${lname}`);
 
 printName(fname, lname);
 
-const CommentBox = React.createClass({
+const Main = React.createClass({
 
   moduleA: null,
 
@@ -40,7 +40,7 @@ const CommentBox = React.createClass({
     if (this.state.content != null) reqEnsContent = <p>{ this.state.content }</p>;
 
     return (
-      <div className="commentBox">
+      <div className="Main">
         <p>Hello world! I am a client-side react component.</p>
         <p>This is an image</p>
         { reqEnsContent }
@@ -53,5 +53,5 @@ const CommentBox = React.createClass({
   }
 });
 
-ReactDOM.render(<CommentBox />,  document.getElementById('content'));
+ReactDOM.render(<Main />,  document.getElementById('content'));
 counter();
