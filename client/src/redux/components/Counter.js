@@ -9,7 +9,7 @@ class Counter extends Component {
     state: PropTypes.object.isRequired,
     onIncrement: PropTypes.func.isRequired,
     onDecrement: PropTypes.func.isRequired,
-    onReceiveComments: PropTypes.func;
+    onReceiveComments: PropTypes.func
   }
 
   componentDidMount() {
