@@ -13,7 +13,7 @@ const render = () => ReactDOM.render(
     state={store.getState()}
     onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
     onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
-    onReceiveComments={() => store.dispatch({ type: 'RECEIVE_COMMENTS' })}
+    onReceiveComments={comments => store.dispatch({ type: 'RECEIVE_COMMENTS', comments: comments })}
   />,
   rootEl
 )
