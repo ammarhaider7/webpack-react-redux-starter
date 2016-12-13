@@ -12,7 +12,7 @@ class Counter extends Component {
     onReceiveComments: PropTypes.func
   }
 
-  componentDidMount() {
+  getComments() {
 
     const { onReceiveComments } = this.props;
     const response = Observable.from(get('http://jsonplaceholder.typicode.com/posts/1/comments'));
@@ -24,17 +24,26 @@ class Counter extends Component {
   render() {
     const { state, onIncrement, onDecrement } = this.props
     return (
-      <p>
-        Clicked: {state.value} times
-        {' '}
-        <button onClick={onIncrement}>
-          +
-        </button>
-        {' '}
-        <button onClick={onDecrement}>
-          -
-        </button>
-      </p>
+      <div>
+        <p>
+          Clicked: {state.value} times
+          {' '}
+          <button onClick={onIncrement}>
+            +
+          </button>
+          {' '}
+          <button onClick={onDecrement}>
+            -
+          </button>
+        </p>
+        <p>
+          Number of comments: {state.list.length}
+          {' '}
+          <button onClick={this.getComments}>
+            Get comments
+          </button>
+        </p>
+      </div>
     )
   }
 }
