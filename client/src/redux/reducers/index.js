@@ -1,9 +1,14 @@
-export default (state = 0, action) => {
+const defaultState = {
+	value: 0,
+	list: []
+}
+
+export default (state = defaultState, action) => {
   switch (action.type) {
     case 'INCREMENT':
-      return state + 1
+      return { ...state, value: state.value + 1 }
     case 'DECREMENT':
-      return state - 1
+      return { ...state, value: state.value - 1 }
     default:
       return state
   }

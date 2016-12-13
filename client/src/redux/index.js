@@ -10,9 +10,10 @@ const rootEl = document.getElementById('container')
 
 const render = () => ReactDOM.render(
   <Counter
-    value={store.getState()}
+    state={store.getState()}
     onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
     onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+    onReceiveComments={() => store.dispatch({ type: 'RECEIVE_COMMENTS' })}
   />,
   rootEl
 )

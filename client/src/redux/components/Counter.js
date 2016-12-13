@@ -1,18 +1,31 @@
 import React, { Component, PropTypes } from 'react'
+import { get } from 'jquery'
+import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/observable/from';
 
 class Counter extends Component {
 
   static propTypes = {
-    value: PropTypes.number.isRequired,
+    state: PropTypes.object.isRequired,
     onIncrement: PropTypes.func.isRequired,
-    onDecrement: PropTypes.func.isRequired
+    onDecrement: PropTypes.func.isRequired,
+    onReceiveComments: PropTypes.func;
+  }
+
+  componentDidMount() {
+
+    const { onReceiveComments } = this.props;
+    const response = Observable.from(get('http://jsonplaceholder.typicode.com/posts/1/comments'));
+
+    response.subscribe(comments => onReceiveComments(comments));
+
   }
 
   render() {
-    const { value, onIncrement, onDecrement } = this.props
+    const { state, onIncrement, onDecrement } = this.props
     return (
       <p>
-        Clicked: {value} times
+        Clicked: {state.value} times
         {' '}
         <button onClick={onIncrement}>
           +
