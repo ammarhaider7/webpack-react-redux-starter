@@ -21,7 +21,10 @@ class Counter extends Component {
   }
 
   render() {
+
     const { state, onIncrement, onDecrement } = this.props
+    let disabled = state.list.length > 0;
+
     return (
       <div>
         <p>
@@ -38,8 +41,8 @@ class Counter extends Component {
         <p>
           Number of comments: {state.list.length}
           {' '}
-          <button onClick={this.getComments.bind(this)}>
-            Get comments
+          <button onClick={this.getComments.bind(this)} disabled={disabled}>
+            { disabled ? 'Disabled' : 'Get comments' }
           </button>
         </p>
       </div>
