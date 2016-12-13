@@ -13,7 +13,6 @@ class Counter extends Component {
   }
 
   getComments() {
-
     const { onReceiveComments } = this.props;
     const response = Observable.from(get('http://jsonplaceholder.typicode.com/posts/1/comments'));
 
@@ -39,7 +38,7 @@ class Counter extends Component {
         <p>
           Number of comments: {state.list.length}
           {' '}
-          <button onClick={this.getComments}>
+          <button onClick={this.getComments.bind(this)}>
             Get comments
           </button>
         </p>
