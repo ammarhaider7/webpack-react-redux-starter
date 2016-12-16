@@ -15,7 +15,7 @@ module.exports = (options) => {
     const module = { rules: loaders };
     const resolve = {
         // you can now require('file') instead of require('file.coffee')
-        extensions: ['.js', '.json', '.jsx'],
+        extensions: ['.js', '.json', '.jsx', '.coffee', '.cjsx'],
     };
     const plugins = [
         new webpack.optimize.CommonsChunkPlugin({
