@@ -1,14 +1,13 @@
-console.log("running app-dev.js");
+console.log('running app-dev.js');
 
 require('babel-register')({
   presets: ['react', 'es2015']
 });
 
 const express = require('express');
-var path = require('path');
 var url = require('url');
 var proxy = require('proxy-middleware');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -17,7 +16,7 @@ var routes = require('./routes/index');
 var app = express();
 
 // set local app var to denote this is a dev app
-app.locals.am_env = "dev";
+app.locals.am_env = 'dev';
 
 // view engine setup
 var options = {
@@ -49,7 +48,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use(function(err, req, res) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -60,7 +59,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,

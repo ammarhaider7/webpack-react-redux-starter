@@ -36,10 +36,8 @@ export default class RxComponent extends Component {
 				<ul className="rxComponent">
 					{this.state.users.map(user => <li key={user.id}>{user.name}</li>)}
 				</ul>
-				<h3>Second group</h3>
-				<ul className="rxComponent">
-					{this.state.todos.map(todo => <li key={todo.id}>{todo.title}</li>)}
-				</ul>
+				<h3>Todos</h3>
+				<p>There are {this.state.todos.length} to do's in the list</p>
 			</div>
 		);
 	}
