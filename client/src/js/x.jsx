@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RxComponent from './rxComponent.js'
+import coffeeFn from './coffee/b.coffee'
 import '../css/global.scss';
 import '../css/xstyles.css';
 
-const fname = 'Ammar';
-const lname = 'Haider';
-
-let printName = (fname, lname) => console.log(`${fname} ${lname}`);
-
-printName(fname, lname);
+coffeeFn();
 
 const Xcomponent = React.createClass({
   render() {

@@ -28,6 +28,16 @@ module.exports = [{
 	options: {
 		presets: ['es2015', 'react', 'stage-0']
 	}
+}, {
+	// CoffeeScript
+	test: /\.coffee$/,
+	include: includeDirs,
+	loader: 'coffee-loader'
+}, {
+	// CJSX
+	test: /\.cjsx$/,
+	include: includeDirs,
+	loader: 'coffee-jsx-loader'
 
 }, {
 	// JPG and PNG (images)
