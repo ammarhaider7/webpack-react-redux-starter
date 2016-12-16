@@ -1,8 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const AssetsPlugin = require('assets-webpack-plugin');
-const srcDir = path.resolve('client/src');
 const loaders = require('./webpack.default-loaders');
+
+const srcDir = path.resolve('client/src');
 
 module.exports = (options) => {
 

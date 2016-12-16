@@ -1,6 +1,6 @@
 /*WebPack Dev Server*/
 
-console.log("creating WebpackDevServer");
+console.log('creating WebpackDevServer');
 var webpack = require('webpack');
 var config = require('../config/webpack.dev.config');
 var WebpackDevServer = require('webpack-dev-server');
